@@ -1,10 +1,13 @@
 package cl.arkontec.app.personabck.domain.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Persona {
@@ -19,13 +22,16 @@ public class Persona {
 	private Integer ordenApellido;
 	private String direccion;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "tipo_persona")
 	private TipoPersona tipoPersona;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "estado_civil")
 	private EstadoCivil estadoCivil;
 	
-	@OneToOne
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name = "sexo")
 	private Sexo sexo;
 
 	public Long getId() {
