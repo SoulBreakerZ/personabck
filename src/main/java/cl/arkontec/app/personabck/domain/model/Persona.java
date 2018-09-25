@@ -5,9 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Persona {
@@ -19,19 +17,15 @@ public class Persona {
 	private String nombre;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
-	private Integer ordenApellido;
 	private String direccion;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "tipo_persona")
+	@OneToOne(fetch = FetchType.EAGER)
 	private TipoPersona tipoPersona;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "estado_civil")
+	@OneToOne(fetch = FetchType.EAGER)
 	private EstadoCivil estadoCivil;
 	
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "sexo")
+	@OneToOne(fetch = FetchType.EAGER)
 	private Sexo sexo;
 
 	public Long getId() {
@@ -64,14 +58,6 @@ public class Persona {
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
-	}
-
-	public Integer getOrdenApellido() {
-		return ordenApellido;
-	}
-
-	public void setOrdenApellido(Integer ordenApellido) {
-		this.ordenApellido = ordenApellido;
 	}
 
 	public String getDireccion() {

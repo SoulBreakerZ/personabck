@@ -28,7 +28,7 @@ public class PersonaController {
 	@Autowired
 	private PersonaService personaService;
 	
-	@GetMapping("/clientes")
+	@GetMapping("/personas")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Persona> getPersonas(
 			HttpServletRequest request, 
@@ -36,7 +36,7 @@ public class PersonaController {
 		return this.personaService.findAll();
 	}
 	
-	@GetMapping("/clientes/{id}")
+	@GetMapping("/personas/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Persona getPersonaById(
 			HttpServletRequest request, 
@@ -45,7 +45,7 @@ public class PersonaController {
 		return this.personaService.findById(id);
 	}
 	
-	@PostMapping("/clientes")
+	@PostMapping("/personas")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Persona createPersona(
 			HttpServletRequest request, 
@@ -54,7 +54,7 @@ public class PersonaController {
 		return this.personaService.create(persona);
 	}
 	
-	@PutMapping("/clientes/{id}")
+	@PutMapping("/personas/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Persona updatePersona(
 			HttpServletRequest request, 
@@ -64,7 +64,7 @@ public class PersonaController {
 		return this.personaService.update(id,personaAct);
 	}
 	
-	@DeleteMapping("/clientes/{id}")
+	@DeleteMapping("/personas/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletePersona(
 			HttpServletRequest request, 

@@ -45,7 +45,6 @@ public class PersonaServiceImpl implements PersonaService{
 		persona.setApellidoPaterno(datosPersona.getApellidoPaterno());
 		persona.setDireccion(datosPersona.getDireccion());
 		persona.setEstadoCivil(datosPersona.getEstadoCivil());
-		persona.setOrdenApellido(datosPersona.getOrdenApellido());
 		persona.setTipoPersona(datosPersona.getTipoPersona());
 		return personaDao.save(persona);
 	}
